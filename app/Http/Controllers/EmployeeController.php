@@ -45,15 +45,10 @@ class EmployeeController extends Controller
         $user = auth()->user(); 
         $user_id = $user->id;
        
-        // $leaveRequests = LeaveRequest::where('employee_id', $user_id)
-        //     ->orderBy('created_at', 'desc')
-        //     ->get();
-
-        // return view('employee.view-leave-requests', compact('leaveRequests'));
+      
         $leaveRequests = LeaveRequest::all()->where('employee_id', $user_id); 
     return view('employee.view-leave-requests', ['leaveRequests' => $leaveRequests]);
-        // $leaveRequests = LeaveRequest::with('employee')->get();  // استرجاع جميع طلبات الإجازات
-        // return view('employee.view-leave-requests', ['leaveRequests' => $leaveRequests]);
+      
     }
     public function dashboard()
     {
