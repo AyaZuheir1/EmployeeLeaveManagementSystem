@@ -63,8 +63,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     
     
     Route::get('/view-leave-requests', [AdminController::class ,'viewLeaveRequests'])->name('view-leave-requests');
-    Route::get('/approve-leave-request/{id}', [AdminController::class ,'approveLeaveRequest'])->name('approve.leave-request');
-    Route::get('/deny-leave-request/{id}', [AdminController::class ,'denyLeaveRequest'])->name('deny.leave-request');
+   
     Route::post('/process-leave-request/{id}', [AdminController::class ,'processLeaveRequest'])->name('process.leave-request');
 
 });

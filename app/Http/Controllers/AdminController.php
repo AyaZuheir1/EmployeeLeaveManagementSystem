@@ -128,19 +128,7 @@ class AdminController extends Controller
 
         return redirect()->route('manage-leave-types')->with('success', 'تم تحديث نوع الإجازة بنجاح.');
     }
-    public function approveLeaveRequest($id)
-    {
-        $leaveRequest = LeaveRequest::findOrFail($id);
-        $leaveRequest->update(['status' => 'Approve']);
-        return redirect()->route('view-leave-requests')->with('success', 'تم الموافقة على الطلب.');
-    }
-
-    public function denyLeaveRequest($id)
-    {
-        $leaveRequest = LeaveRequest::findOrFail($id);
-        $leaveRequest->update(['status' => 'Deny']);
-        return redirect()->route('view-leave-requests')->with('success', 'تم رفض الطلب.');
-    }
+  
     public function viewLeaveRequests()
     {
         $leaveRequests = LeaveRequest::all();
