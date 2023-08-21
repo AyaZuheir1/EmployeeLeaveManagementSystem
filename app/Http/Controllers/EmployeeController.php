@@ -38,18 +38,22 @@ class EmployeeController extends Controller
             'status' => 'قيد المراجعة', 
         ]);
 
-        return redirect()->route('view-leave-requests')->with('success', 'تم تقديم الطلب بنجاح.');
+        return redirect()->route('employee.submit-leave')->with('success', 'تم تقديم الطلب بنجاح.');
     }
     public function viewLeaveRequests()
     {
-        $user = auth()->user(); 
-        $user_id = $user->id;
+        // $user = auth()->user(); 
+        // $user_id = $user->id;
        
-        $leaveRequests = LeaveRequest::where('employee_id', $user_id)
-            ->orderBy('created_at', 'desc')
-            ->get();
+        // $leaveRequests = LeaveRequest::where('employee_id', $user_id)
+        //     ->orderBy('created_at', 'desc')
+        //     ->get();
 
-        return view('employee.view-leave-requests', compact('leaveRequests'));
+        // return view('employee.view-leave-requests', compact('leaveRequests'));
+        $leaveRequests = LeaveRequest::all(); 
+    return view('employee.view-leave-requests', ['leaveRequests' => $leaveRequests]);
+        // $leaveRequests = LeaveRequest::with('employee')->get();  // استرجاع جميع طلبات الإجازات
+        // return view('employee.view-leave-requests', ['leaveRequests' => $leaveRequests]);
     }
     public function dashboard()
     {

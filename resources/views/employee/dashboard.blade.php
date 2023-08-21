@@ -9,8 +9,8 @@
                     <div class="card-header">Dashboard  </div>
 
                     <div class="card-body">
-                        <a href="{{ route('employee-submit-leave') }}" class="btn btn-primary"> Add leave requests </a>
-                        <a href="{{ route('view-leave-requests') }}" class="btn btn-secondary"> requests </a>
+                        <a href="{{ route('employee.submit-leave') }}" class="btn btn-primary"> Add leave requests </a>
+                        <a href="{{ route('employee.leave-requests') }}" class="btn btn-secondary"> requests </a>
                     </div>
                 </div>
             </div>

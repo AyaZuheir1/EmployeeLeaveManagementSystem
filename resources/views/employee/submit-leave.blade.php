@@ -11,7 +11,7 @@
                         @if(session('success'))
                             <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
-                        <form action="{{ route('employee-submit-leave') }}" method="POST">
+                        <form action="{{ route('employee.submit-leave') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="leave_type_id"> leave type</label>

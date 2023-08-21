@@ -29,7 +29,6 @@
                                 <td>{{ $request->start_date }}</td>
                                 <td>{{ $request->duration_days }}</td>
                                 <td>{{ $request->status }}</td>
-                                <!-- ... بيانات الطلب -->
                                 <td>
                                     @if($request->status === 'قيد المراجعة')
                                     <form action="{{ route('process.leave-request', ['id' => $request->id]) }}" method="POST">

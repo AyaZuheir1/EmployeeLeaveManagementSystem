@@ -27,12 +27,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'role:employee']], function () {
+    Route::get('/leave',[EmployeeController::class ,'viewLeaveRequests'])->name('employee.leave-requests');
     Route::get('/employee', [EmployeeController::class ,'dashboard'])->name('employee-dashboard');
 
-    Route::get('/employee/submit-leave', [EmployeeController::class ,'showSubmitLeave']);
+    Route::get('/employee/submit-leave', [EmployeeController::class ,'showSubmitLeave'])->name('employee.submit-leave');
     
-    Route::post('/employee/submit-leave', [EmployeeController::class ,'submitLeave'])->name('employee-submit-leave');
-    Route::get('/view-leave-requests', [EmployeeController::class ,'viewLeaveRequests'])->name('view-leave-requests');
+    Route::post('/employee/submit-leave', [EmployeeController::class ,'submitLeave'])->name('employee.submit-leave');
+    Route::get('/view-leave-requests', [EmployeeController::class ,'viewLeaveRequests'])->name('employee.leave-requests');
 
 });
 

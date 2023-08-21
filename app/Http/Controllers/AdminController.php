@@ -156,13 +156,10 @@ public function processLeaveRequest(Request $request, $id)
     if ($request->input('status') === 'موافقة') {
         $leaveRequest->update(['status' => 'موافقة']);
     } elseif ($request->input('status') === 'رفض') {
-        $this->validate($request, [
-            'rejection_reason' => 'required',
-        ]);
+       
 
         $leaveRequest->update([
             'status' => 'رفض',
-            'admin_comment' => $request->input('rejection_reason'),
         ]);
     }
 

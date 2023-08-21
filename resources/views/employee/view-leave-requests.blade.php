@@ -19,9 +19,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($leaveRequests as $index => $request)
-                                    <tr>
-                                        <td>{{ $index + 1 }}</td>
+                            @foreach($leaveRequests as $request)
+                            <tr>
+                                <td>
+                                    {{ $request->employee->name }}
+</td>
                                         <td>{{ $request->leaveType->name }}</td>
                                         <td>{{ $request->start_date }}</td>
                                         <td>{{ $request->duration_days }} يوم</td>
